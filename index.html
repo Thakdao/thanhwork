@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html class="mouse modern chrome" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>THANHWORK ｜グエンハータン</title>
+    <!-- *** stylesheet *** -->
+    <style rel="stylesheet" media="all">
+      /* default.css */
+      html,
+      article,
+      aside,
+      audio,
+      blockquote,
+      body,
+      dd,
+      dialog,
+      div,
+      dl,
+      dt,
+      fieldset,
+      figure,
+      footer,
+      form,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      header,
+      hgroup,
+      input,
+      li,
+      mark,
+      menu,
+      nav,
+      ol,
+      p,
+      pre,
+      section,
+      td,
+      textarea,
+      th,
+      time,
+      ul,
+      video,
+      main {
+        margin: 0;
+        padding: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        -webkit-font-feature-settings: "palt";
+        font-feature-settings: "palt";
+      }
+      address,
+      caption,
+      cite,
+      code,
+      dfn,
+      em,
+      strong,
+      th,
+      var {
+        font-style: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      caption,
+      th {
+        text-align: left;
+      }
+      q:after,
+      q:before {
+        content: "";
+      }
+      embed,
+      object {
+        vertical-align: top;
+      }
+      hr,
+      legend {
+        display: none;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: 100%;
+      }
+      abbr,
+      acronym,
+      fieldset,
+      img {
+        border: 0;
+      }
+      li {
+        list-style-type: none;
+      }
+      sup {
+        vertical-align: super;
+        font-size: 0.5em;
+      }
+      img {
+        vertical-align: top;
+      }
+      i {
+        font-style: normal;
+      }
+      svg {
+        vertical-align: middle;
+      }
+      article,
+      aside,
+      dialog,
+      figure,
+      footer,
+      header,
+      hgroup,
+      nav,
+      section,
+      main {
+        display: block;
+      }
+      nav,
+      ul {
+        list-style: none;
+      }
+    </style>
+    <link
+      href="./files/css/magnific-popup.css?v=2022090760705"
+      rel="stylesheet"
+      media="all"
+    />
+    <link
+      href="./files/css/common.css?v=2022091654901"
+      rel="stylesheet"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      href="./files/css/homepage.css?v=2022091655651"
+      rel="stylesheet"
+      media="all"
+    />
+    <!-- *** javascript *** -->
+    <!-- jquery-3.4.1　-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // config.js
+      var $body,
+        $page,
+        $changeImg,
+        $doc = $(document),
+        $w = $(window),
+        $html = $("html"),
+        abi = {
+          bp_tab: 1199,
+          bp_sp: 767,
+          pc: "",
+          tab: "",
+          sp: "",
+          pcView: "",
+          tabView: "",
+          spView: "",
+          finish: "",
+          deviceWidth: "",
+          deviceHeight: "",
+          sT: "",
+          ie9: !!$html.hasClass("ie9"),
+          ie8: !!$html.hasClass("ie8"),
+          ie10: !!$html.hasClass("ie10"),
+          ie11: !!$html.hasClass("ie11"),
+          edge: !!$html.hasClass("edge"),
+          ua_mouse: !!$html.hasClass("mouse"),
+          ua_touch: !!$html.hasClass("touch"),
+          ua_phone: !!$html.hasClass("phone"),
+        },
+        rwdFunctions = {
+          checkValue: function () {
+            (abi.deviceWidth = abi.ie8 ? $w.width() : window.innerWidth),
+              (abi.deviceHeight = $w.height()),
+              (abi.pc = !!(abi.ie8 || abi.deviceWidth > abi.bp_tab)),
+              (abi.tab =
+                !abi.ie8 &&
+                abi.deviceWidth <= abi.bp_tab &&
+                abi.deviceWidth > abi.bp_sp),
+              (abi.sp = !abi.ie8 && abi.deviceWidth <= abi.bp_sp);
+          },
+          fooLoad: function (i) {
+            i.each(function () {
+              $(this).attr("src", $(this).data("img"));
+            });
+          },
+          loadImg: function () {
+            (abi.finish = !!(abi.pcView && abi.tabView && abi.spView)),
+              abi.ie8 || abi.finish
+                ? abi.pcView || (abi.pcView = !0)
+                : abi.pc || abi.tab
+                ? ((abi.pcView && abi.tabView) ||
+                    rwdFunctions.fooLoad($("img.load_pc-tab")),
+                  abi.pc &&
+                    !abi.pcView &&
+                    (rwdFunctions.fooLoad($("img.load_pc")), (abi.pcView = !0)),
+                  abi.tab &&
+                    !abi.tabView &&
+                    (rwdFunctions.fooLoad($("img.load_tab-sp")),
+                    (abi.tabView = !0)))
+                : abi.spView ||
+                  (rwdFunctions.fooLoad($("img.load_sp,img.load_tab-sp")),
+                  (abi.spView = !0));
+          },
+          changeImg: function () {
+            if (!abi.ie8)
+              for (var i = 0; i <= $changeImg.length - 1; i++)
+                $changeImg.eq(i).is(".custom")
+                  ? abi.deviceWidth > $changeImg.eq(i).data("custom")
+                    ? $changeImg.eq(i).attr("src", $changeImg.eq(i).data("img"))
+                    : $changeImg
+                        .eq(i)
+                        .attr(
+                          "src",
+                          $changeImg
+                            .eq(i)
+                            .data("img")
+                            .replace("-before", "-after")
+                        )
+                  : $changeImg.eq(i).is(".tab,.all")
+                  ? $changeImg.eq(i).is(".tab")
+                    ? abi.pc
+                      ? $changeImg
+                          .eq(i)
+                          .attr("src", $changeImg.eq(i).data("img"))
+                      : $changeImg
+                          .eq(i)
+                          .attr(
+                            "src",
+                            $changeImg.eq(i).data("img").replace("-pc", "-tab")
+                          )
+                    : $changeImg.eq(i).is(".all") &&
+                      (abi.pc
+                        ? $changeImg
+                            .eq(i)
+                            .attr("src", $changeImg.eq(i).data("img"))
+                        : abi.tab
+                        ? $changeImg
+                            .eq(i)
+                            .attr(
+                              "src",
+                              $changeImg
+                                .eq(i)
+                                .data("img")
+                                .replace("-pc", "-tab")
+                            )
+                        : abi.sp &&
+                          $changeImg
+                            .eq(i)
+                            .attr(
+                              "src",
+                              $changeImg.eq(i).data("img").replace("-pc", "-sp")
+                            ))
+                  : abi.sp
+                  ? $changeImg
+                      .eq(i)
+                      .attr(
+                        "src",
+                        $changeImg.eq(i).data("img").replace("-pc", "-sp")
+                      )
+                  : $changeImg.eq(i).attr("src", $changeImg.eq(i).data("img"));
+          },
+          adjustFsz: function () {
+            abi.sp &&
+              (abi.deviceHeight > abi.deviceWidth
+                ? ((p = abi.deviceWidth / 3.2), $page.css("fontSize", p + "%"))
+                : $page.css("fontSize", ""));
+          },
+          settingRwd: function () {
+            rwdFunctions.checkValue(),
+              rwdFunctions.changeImg(),
+              rwdFunctions.loadImg(),
+              rwdFunctions.adjustFsz();
+          },
+        };
+      ($.fn.superResize = function (i) {
+        var a = $.extend({ loadAction: !0, resizeAfter: function () {} }, i);
+        a.loadAction &&
+          (("interactive" !== document.readyState &&
+            "complete" !== document.readyState) ||
+            a.resizeAfter());
+        var e = !1,
+          t = abi.deviceWidth;
+        return (
+          this.resize(function () {
+            !1 !== e && clearTimeout(e),
+              (e = setTimeout(function () {
+                t != abi.deviceWidth &&
+                  (a.resizeAfter(), (t = abi.deviceWidth));
+              }, 300));
+          }),
+          this
+        );
+      }),
+        ($.fn.firstLoad = function (i) {
+          var a = $.extend(
+              {
+                pc: function () {},
+                pc_tab: function () {},
+                tab: function () {},
+                tab_sp: function () {},
+                sp: function () {},
+              },
+              i
+            ),
+            e = [];
+          return (
+            this.superResize({
+              resizeAfter: function () {
+                setTimeout(function () {
+                  1 != e[0] && abi.pcView && (a.pc(), (e[0] = !0)),
+                    ((1 != e[1] && abi.pcView) || (1 != e[1] && abi.tabView)) &&
+                      (a.pc_tab(), (e[1] = !0)),
+                    1 != e[2] && abi.tabView && (a.tab(), (e[2] = !0)),
+                    ((1 != e[3] && abi.tabView) || (1 != e[3] && abi.spView)) &&
+                      (a.tab_sp(), (e[3] = !0)),
+                    1 != e[4] && abi.spView && (a.sp(), (e[4] = !0));
+                }, 200);
+              },
+            }),
+            this
+          );
+        }),
+        ($.fn.hasAttr = function (i) {
+          var a = this.attr(i);
+          return void 0 !== a && !1 !== a;
+        }),
+        document.addEventListener("DOMContentLoaded", function (i) {
+          ($body = $("body")),
+            ($page = $("#container")),
+            ($changeImg = $("img.change_img")),
+            rwdFunctions.settingRwd(),
+            abi.ie8 &&
+              rwdFunctions.fooLoad(
+                $("img.change_img,img.load_pc,img.load_pc-tab")
+              ),
+            abi.ua_phone ||
+              $('a[href^="tel:"]')
+                .wrapInner('<span class="tel"></span>')
+                .children("span")
+                .unwrap(),
+            abi.ua_touch &&
+              $page.find("*").on({
+                touchstart: function () {
+                  $(this).addClass("touchstart").removeClass("touchend");
+                },
+                touchend: function () {
+                  $(this).addClass("touchend").removeClass("touchstart");
+                },
+              }),
+            $w
+              .on({
+                load: function () {
+                  $w.trigger("resize").trigger("scroll");
+                },
+                resize: function () {
+                  rwdFunctions.checkValue();
+                },
+                scroll: function () {
+                  abi.sT = $w.scrollTop();
+                },
+              })
+              .superResize({
+                loadAction: !1,
+                resizeAfter: function () {
+                  rwdFunctions.settingRwd();
+                },
+              });
+        });
+    </script>
+    <script src="./files/js/jquery.magnific-popup.min.js?v=2022090760742"></script>
+
+    <script src="./files/js/jquery.inview.min.js?v=2022091291034"></script>
+    <script src="./files/js/common.min.js?v=20220823120932"></script>
+    <script
+      src="https://kit.fontawesome.com/0cdf9d3e9e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script src="./files/js/homepage.min.js?v=2022091655859"></script>
+  </head>
+
+  <body id="homepage">
+    <div id="container">
+      <header id="header">
+        <div class="con_header">
+          <div class="box_header">
+            <h1 class="box_logo">
+              <a class="over" href="./"
+                ><img src="./files/images/header/logo.gif" alt="" />
+              </a>
+            </h1>
+            <div class="box_nav view_pc-tab">
+              <ul class="list_nav">
+                <li><a class="over" href="./">Home</a></li>
+                <li><a class="over" href="#lnk_intro">About</a></li>
+                <li><a class="over" href="#lnk_skill">Skill</a></li>
+                <li><a class="over" href="#lnk_work">Work</a></li>
+                <li><a class="over" href="#lnk_ct">Contact</a></li>
+                <li><a class="over" href="#lnk_photo">Photo Gallery</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- /#header -->
+      <div class="con_mv inview_fadeIn">
+        <div class="box_mv">
+          <p><img src="./files/images/home/img_mv.png" alt="" /></p>
+        </div>
+      </div>
+      <main id="contents">
+        <div class="con_intro inview_fadeIn" id="lnk_intro">
+          <section class="st_intro">
+            <h2 class="st_basic">About Me</h2>
+          </section>
+          <section class="box_intro inview_fadeIn">
+            <div class="box_info">
+              <h3 class="st_medium">
+                <i class="fa-solid fa-user-tie"></i>　自己PR
+              </h3>
+              <p class="txt_basic">
+                グエン　ハー　タンと申します。<br />
+                ポートフォリオサイト『THANHWORK』をご覧いただきありがとうございます。<br>
+                当サイトでは、タンがこれまでに制作してきたWebの作品をまとめています。<br>
+                温かい目で見ていただけますと幸いです。<br><br>
+
+                ▼　簡単な自己紹介<br>
+                ベトナムのハノイから参りました。2016に留学生として日本に来ました。日本語学校を卒業して岡山県の中国短期大学の情報ビジネス科を勉強しました。2020年3月に卒業しました。<br>学生時代からWEBに興味を持ち、新しいスキルを吸収するのが好きなので、これからも向上心を持って素敵なサイトを作っていきます！将来はベトナムと日本の架け橋としてになりたいです。
+
+              </p>
+              <br /><br />
+
+              <!-- <p class="txt_basic">
+                <i class="fa-solid fa-file"></i
+                ><a href="./files/images/home/seiseki.jpg" class="retina-modal"
+                  >履歴書を見る</a
+                >
+              </p> -->
+            </div>
+            <div class="box_history">
+              <h3 class="st_medium">
+                <i class="fa-solid fa-graduation-cap"></i>　学歴・職歴
+              </h3>
+              <div class="box_table">
+                <table>
+                  <tr>
+                    <th>2016年</th>
+                    <td>来日<br />岡山外語学院　入学</td>
+                  </tr>
+                  <tr>
+                    <th>2018年4月</th>
+                    <td>
+                      岡山外語学院　卒業<br />中国短期大学 情報ビジネス学科 入学
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>2019年9月</th>
+                    <td>
+                      株式会社ｱﾋﾞﾘﾌﾞ　内定を得る「<a
+                        target="_blank"
+                        href="https://www.ab-net.co.jp/"
+                        >ｱﾋﾞﾘﾌﾞのホームページ</a
+                      >」
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>2020年3月</th>
+                    <td>
+                      中国短期大学 情報ビジネス学科 卒業
+                      <a
+                        href="./files/images/home/seiseki.jpg"
+                        class="retina-modal"
+                        >成績を見る</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>2020年4月</th>
+                    <td>株式会社ｱﾋﾞﾘﾌﾞ 入社</td>
+                  </tr>
+                  <tr>
+                    <th>2020年5月～</th>
+                    <td>新型コロナウイルスのため　1年間休業</td>
+                  </tr>
+                  <tr>
+                    <th>22021年4月～</th>
+                    <td>株式会社ｱﾋﾞﾘﾌﾞでフロントエンド＆ブリッジとして努めています。<br>
+                        (現在まで1年間判)</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="con_skill inview_fadeIn" id="lnk_skill">
+          <h2 class="st_basic">Skill</h2>
+          <div class="box_skill inview_fadeIn">
+            <ul class="list_skill">
+              <li>
+                <p class="ic"><i class="fa-solid fa-language"></i></p>
+                <p>JLPT　2級（N2）</p>
+              </li>
+              <li>
+                <p class="ic"><i class="fa-brands fa-php"></i></p>
+                <p>PHP</p>
+              </li>
+              <li>
+                <p class="ic"><i class="fa-brands fa-html5"></i></p>
+                <p>HTML5</p>
+              </li>
+              <li>
+                <p class="ic"><i class="fa-brands fa-css3-alt"></i></p>
+                <p>CSS3</p>
+              </li>
+              <li>
+                <p class="ic"><i class="fa-brands fa-js"></i></p>
+                <p>Javascript</p>
+              </li>
+              <li>
+                <p class="ic"><i class="fa-brands fa-sass"></i></p>
+                <p>Sass</p>
+              </li>
+
+              <li>
+                <p class="ic"><i class="fa-brands fa-wordpress"></i></p>
+                <p>Wordpress(基本)</p>
+              </li>
+              <li>
+                <p class="ic"><i class="fa-brands fa-react"></i></p>
+                <p>React(自学中)</p>
+              </li>
+              <li>
+                <p class="ic"><i class="fa-brands fa-git-alt"></i></p>
+                <p>Git</p>
+              </li>
+
+              <li>
+                <p class="ic"><i class="fa-solid fa-file-image"></i></p>
+                <p>Photoshop</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="con_work inview_fadeIn" id="lnk_work">
+          <h2 class="st_basic">Work</h2>
+          <!-- <p class="center txt_basic">
+            アビリブで構築したページサイト
+          </p> -->
+          <ul class="box_work">
+            <li class="box_item inview_fadeIn">
+              <a class="over" href="https://nomon-nagasaki.jp/" target="_blank">
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_01.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">Nomon長崎</h4>
+                  <p class="catch">長崎県 長崎市</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a
+                class="over"
+                href="https://www.kafuu-okinawa.jp/"
+                target="_blank"
+              >
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_02.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">
+                    カフーリゾートフチャク コンド・ホテル
+                  </h4>
+                  <p class="catch">沖縄県 国頭郡</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a
+                class="over"
+                href="https://www.hotespa.net/hotels/kaisyu/"
+                target="_blank"
+              >
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_03.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">浜千鳥の湯　海舟</h4>
+                  <p class="catch">和歌山県 白浜温泉</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a
+                class="over"
+                href="https://royalview-churaumi.com/"
+                target="_blank"
+              >
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_04.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">センチュリオンホテル ・沖縄美ら海</h4>
+                  <p class="catch">沖縄県 国頭郡</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a
+                class="over"
+                href="https://www.coral-hotel.co.jp/en/"
+                target="_blank"
+              >
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_05.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">宮島コーラルホテル</h4>
+                  <p class="catch">広島県 廿日市市</p>
+                  <p class="tag"><span>Web</span>　<span>EN</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a class="over" href="https://www.o-bje.net/" target="_blank">
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_06.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">
+                    大分県「おおいた芸術文化の旅 OITA Art&Culture」
+                  </h4>
+                  <p class="catch">大分県 大分市</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a class="over" href="https://www.seiryuu.jp/" target="_blank">
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_07.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">嬉野温泉 湯宿 清流</h4>
+                  <p class="catch">佐賀県 嬉野温泉</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a
+                class="over"
+                href="https://www.hotespa.net/hotels/umekoji_kadensho/"
+                target="_blank"
+              >
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_08.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">京都嵐山温泉 花伝抄</h4>
+                  <p class="catch">京都府 嵐山温泉</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a
+                class="over"
+                href="https://www.nishiwaki-royalhotel.jp/"
+                target="_blank"
+              >
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_09.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">西脇ロイヤルホテル</h4>
+                  <p class="catch">兵庫県 西脇市</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a
+                class="over"
+                href="https://www.hotel-sevencolors.com/northern_ishigaki/"
+                target="_blank"
+              >
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_10.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">SevenColors 石垣島</h4>
+                  <p class="catch">沖縄県 石垣市</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a
+                class="over"
+                href="https://nakatsugawaonsen.com/hanasarasa/"
+                target="_blank"
+              >
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_11.png" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">ホテル花更紗</h4>
+                  <p class="catch">岐阜県 中津川温泉</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+            <li class="box_item inview_fadeIn">
+              <a
+                class="over"
+                href="https://animal-center.hospital/"
+                target="_blank"
+              >
+                <p class="img_work">
+                  <img src="./files/images/home/img_work_01.jpg" alt="" />
+                </p>
+                <div class="box_txt">
+                  <h4 class="st_small">中部動物医療センター</h4>
+                  <p class="catch">沖縄県 沖縄市</p>
+                  <p class="tag"><span>Web</span></p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="con_contact inview_fadeIn" id="lnk_ct">
+          <h2 class="st_basic">Contact</h2>
+          <!-- <div class="box_contact">
+                    <p class="txt_basic">
+                        住所：大阪市<br>Tel：090-9738-6789<br>メール：thanhnh140393@gmail.com<br>Website :
+                    </p>
+                </div> -->
+          <p class="txt_basic inview_fadeIn">
+            TEl：<a href="tel:090-9738-6789">090-9738-6789 </a>
+          </p>
+          <p class="btn_basic inview_fadeIn">
+            <a
+              href="m&#97;i&#108;t&#111;:&#116;h&#97;&#107;&#100;&#97;&#111;&#64;&#103;&#109;a&#105;l&#46;&#99;&#111;m"
+              ><span
+                ><i class="far fa-envelope"></i>メールでのお問い合わせ</span
+              ></a
+            >
+          </p>
+        </div>
+        <div class="con_photo inview_fadeIn" id="lnk_photo">
+          <h2 class="st_basic">Photo Gallery</h2>
+          <p class="center txt_basic">
+            趣味は写真撮影です、色んな所に行って綺麗な写真を撮りたいです～
+          </p>
+          <div class="box_slide">
+            <p><img src="./files/images/home/img_slide.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_02.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_03.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_04.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_05.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_06.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_07.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_08.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_09.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_10.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_11.jpg" alt="" /></p>
+            <p><img src="./files/images/home/img_slide_12.jpg" alt="" /></p>
+          </div>
+        </div>
+      </main>
+      <!-- /#contents -->
+      <footer id="footer">
+        <div class="box_footer center inview_fadeIn">
+          <p class="logo">
+            <a class="over" href="./"
+              ><img src="./files/images/footer/logo.gif" alt=""
+            /></a>
+          </p>
+          <div class="box_sns">
+            <p>
+              <a
+                target="_blank"
+                class="over"
+                href="https://www.facebook.com/thak.dao/"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+            </p>
+            <p>
+              <a
+                target="_blank"
+                class="over"
+                href="https://www.instagram.com/thakdao/"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </p>
+            <p>
+              <a class="over" href="./"><i class="fa-solid fa-house"></i></a>
+            </p>
+          </div>
+          <p class="center" id="copyright">
+            &copy; 2022 Thanh Nguyen. all rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

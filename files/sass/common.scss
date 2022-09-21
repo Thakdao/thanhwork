@@ -1,0 +1,266 @@
+@charset "utf-8";
+/* ===================================================================
+CSS information
+
+file name	: common.css
+author		 : Abilive
+style info : 基本・共通設定
+=================================================================== */
+@import "settings";
+
+//----------------------------------------------//
+// 基本設定、リンクカラーなど
+//----------------------------------------------//
+html {
+	font-size: small;
+	line-height: 1.5;
+}
+body {
+	color: $baseColor;
+	background: #fff;
+	-webkit-text-size-adjust: none;
+	@include fsz($baseSize, 13);
+	.ie & {
+		@include fsz($baseSize, 13.4);
+	}
+	@include mq(sp) {
+		@include fsz($baseSizeSp, 13);
+	}
+	a {
+		color: $baseColor;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	img {
+		max-width: 100%;
+		-webkit-touch-callout: none;
+		line-height: 1;
+	}
+	// iphonex以上用設定
+	// // 右側の空白
+	// padding: constant(safe-area-inset-right);
+	// // 下側の空白
+	// padding: constant(safe-area-inset-bottom);
+	// //　左側の空白
+	// padding: constant(safe-area-inset-left);
+	// // 上側の空白
+	// padding: constant(safe-area-inset-top);
+}
+body,
+pre,
+input,
+textarea,
+select {
+	@include sans-serif("jp");
+}
+input,
+select,
+textarea {
+	font-size: 100%;
+}
+select {
+	@include mq(sp) {
+		// iphoneのセレクト選択拡大を防ぐ 16px以上
+		// font-size: 16px;
+	}
+}
+
+//----------------------------------------------//
+// ie8フォロー
+//----------------------------------------------//
+html.ie8 {
+	.view_tab,
+	.view_tab_sp,
+	.view_sp {
+		display: none !important;
+	}
+	#container {
+		min-width: $columnWidth * 1px !important;
+		margin: auto;
+		font-size: 100% !important;
+	}
+}
+
+//----------------------------------------------//
+// .view_xxx
+//----------------------------------------------//
+body {
+	@include mq(pc) {
+		.view_tab-sp,
+		.view_tab {
+			display: none !important;
+		}
+	}
+	@include mq(pc_tab) {
+		.view_sp {
+			display: none !important;
+		}
+	}
+	@include mq(tab_sp) {
+		.view_pc {
+			display: none !important;
+		}
+	}
+	@include mq(sp) {
+		.view_pc-tab,
+		.view_tab {
+			display: none !important;
+		}
+	}
+}
+
+//----------------------------------------------//
+// .mouseOver
+//----------------------------------------------//
+.over {
+	@include over;
+}
+
+//----------------------------------------------//
+
+//----------------------------------------------//
+#container {
+	overflow: hidden;
+	@include mq(pc) {
+		width: 100%;
+		margin: auto;
+	}
+	@include mq(pc_tab) {
+		font-size: 100% !important;
+	}
+	// @include mq(pc) {
+	// 	@include mq(pc_l) {}	//1920 ~ 1560			(1920-1200)/2+1
+	// 	@include mq(pc_s) {} //1559 ~ $columnWidth
+	// }
+	// @include mq(pc_tab) {}
+	// @include mq(tab) {}
+	// @include mq(tab_sp) {}
+	// @include mq(sp) {}
+	// @include mq(min_w, 1px) {}
+	// @include mq(max_w, 1700px) {}
+	// @include mq(min_max_w, 768px, 1023px) {}
+}
+
+//----------------------------------------------//
+// #header
+//----------------------------------------------//
+#header {
+	.con_header {
+		max-width: 1920px;
+		width: 100%;
+		margin: 0 auto;
+		.box_logo {
+			@include cV( max-width, 250px, 200px, 70%);
+			@include mq(sp){
+				margin: 0 auto;
+			}
+		}
+		.box_header {
+			max-width: 1280px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1em 0;
+			@include mq(max_w,1280px){
+				width: 95%;
+			}
+			.box_nav {
+				@include cV( width, percentage(600/1280), 65%, 100%);
+				.list_nav {
+					display: flex;
+					justify-content: space-between;
+					li {
+						a {
+							text-decoration: none;
+							@include fsz-cha(20, 18, 16);
+							position: relative;
+							&::before{
+								content: "";
+								position: absolute;
+								width: 0%;
+								height: 1px;
+								left: 0;
+								bottom: 0;
+								background: #e9b949;
+								transition: all .5s;
+							}
+							&:hover{
+								&::before{
+									width: 100%;
+
+								}
+							}
+						}
+					}
+				}
+			}
+			.nav-btn {
+				max-width: 100px;
+				background: transparent;
+				border-color: transparent;
+				color: var(--clr-primary-5);
+				font-size: 2rem;
+				cursor: pointer;
+				justify-self: end;
+				transition: var(--transition);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.box_lang {
+				max-width: 200px;
+			}
+		}
+	}
+}
+
+//----------------------------------------------//
+// #contents
+//----------------------------------------------//
+#contents {
+}
+
+//----------------------------------------------//
+// #footer
+//----------------------------------------------//
+#footer {
+	.box_footer {
+		max-width: 1920px;
+		width: 100%;
+		margin: 0 auto;
+		background: #102a42;
+		padding: 5em 0 3em;
+		color: #fff;
+		.logo {
+			@include cV( width, 15%, 30%, 40%);
+			margin: 0 auto;
+		}
+		.box_sns {
+			display: flex;
+			justify-content: center;
+			margin: 2em 0 3em;
+			P {
+				margin: 0 1em;
+				a {
+					color: #fff;
+					@include fsz-cha(25, 24, 23);
+				}
+			}
+		}
+	}
+}
+
+//----------------------------------------------//
+// 下層共通スタイル
+//----------------------------------------------//
+html.lower #contents {
+}
+
+//----------------------------------------------//
+// テーブル
+//----------------------------------------------//
+table.tbl_basic {
+}
