@@ -43,17 +43,20 @@ include realpath(__DIR__ . '/config/include.php');
                 <section class="box_intro inview_fadeIn">
                     <div class="box_info">
                         <h3 class="st_medium">
-                            <i class="fa-solid fa-user-tie"></i>　自己PR
+                            <i class="fa-solid fa-user-tie"></i>　インフォメーション
                         </h3>
                         <p class="txt_basic">
-                            初めて！グエン　ハー　タンと申します。<br>
+                            初めて！ グエン　ハー　タンと申します。<br>
                             ベトナムのハノイから参りました。2016に留学生として日本に来ました。日本語学校を卒業してから
                             今岡山県に中国短期大学の情報ビジネス科を勉強しています。2020年3月に卒業予定です。学生時代
                             からWEBに興味を持ち、Web関係の仕事に就きたいと思っていました。
-                        </p>
+                       <br><br>
+                ▼　簡単な自己紹介<br>
+                ベトナムのハノイから参りました。2016に留学生として日本に来ました。日本語学校を卒業して岡山県の中国短期大学の情報ビジネス科を勉強しました。2020年3月に卒業しました。<br>学生時代からWEBに興味を持ち、新しいスキルを吸収するのが好きなので、これからも向上心を持って素敵なサイトを作っていきます！
+
+              </p>
                         <br><br>
 
-                        <p class="txt_basic"> <i class="fa-solid fa-file"></i><a href="./files/images/home/seiseki.jpg" class="retina-modal">履歴書を見る</a></p>
                     </div>
                     <div class="box_history">
                         <h3 class="st_medium">
@@ -87,7 +90,7 @@ include realpath(__DIR__ . '/config/include.php');
                                 </tr>
                                 <tr>
                                     <th>22021年4月～</th>
-                                    <td>株式会社ｱﾋﾞﾘﾌﾞで努めています。</td>
+                                    <td>株式会社ｱﾋﾞﾘﾌﾞでフロントエンド＆ブリッジとして努めています。</td>
                                 </tr>
                             </table>
                         </div>
@@ -107,7 +110,7 @@ include realpath(__DIR__ . '/config/include.php');
                         </li>
                         <li>
                             <p class="ic"><i class="fa-brands fa-php"></i></p>
-                            <p>PHP</p>
+                            <p>PHP(Laravel 基本)</p>
                         </li>
                         <li>
                             <p class="ic"><i class="fa-brands fa-html5"></i></p>
@@ -119,7 +122,7 @@ include realpath(__DIR__ . '/config/include.php');
                         </li>
                         <li>
                             <p class="ic"><i class="fa-brands fa-js"></i></p>
-                            <p>Javascript</p>
+                            <p>Javascript(Jquery)</p>
                         </li>
                         <li>
                             <p class="ic"><i class="fa-brands fa-sass"></i></p>
@@ -127,8 +130,8 @@ include realpath(__DIR__ . '/config/include.php');
                         </li>
 
                         <li>
-                            <p class="ic"><i class="fa-brands fa-wordpress"></i></p>
-                            <p>Wordpress(基本)</p>
+                            <p class="ic"><i class="fa-brands fa-node"></i></p>
+                            <p>NodeJS(基本)</p>
                         </li>
                         <li>
                             <p class="ic"><i class="fa-brands fa-react"></i></p>
