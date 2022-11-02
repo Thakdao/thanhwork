@@ -64,8 +64,7 @@ include realpath(__DIR__ . '/config/include.php');
                         </h3>
                         <div class="box_table " >
                             <table>
-                                <tr>
-                                    <th>2016年</th>
+<th>2016年</th>
                                     <td>来日<br>岡山外語学院　入学</td>
                                 </tr>
                                 <tr>
@@ -82,16 +81,9 @@ include realpath(__DIR__ . '/config/include.php');
                                 </tr>
                                 <tr>
                                     <th>2020年4月</th>
-                                    <td>株式会社ｱﾋﾞﾘﾌﾞ 入社</td>
+                                    <td>株式会社ｱﾋﾞﾘﾌﾞ 入社(現在に至る)</td>
                                 </tr>
-                                <tr>
-                                    <th>2020年5月～</th>
-                                    <td>新型コロナウイルスのため　1年間休業</td>
-                                </tr>
-                                <tr>
-                                    <th>22021年4月～</th>
-                                    <td>株式会社ｱﾋﾞﾘﾌﾞでフロントエンド＆ブリッジとして努めています。</td>
-                                </tr>
+                               
                             </table>
                         </div>
 
